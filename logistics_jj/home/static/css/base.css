@@ -156,3 +156,85 @@ body {
       font-size: 0.85rem;
     }
   }
+
+  form {
+    max-width: 500px; /* Ajusta el ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Styling for Form Groups */
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre grupos */
+}
+
+/* Styling for Labels */
+form label {
+    font-weight: bold;
+    color: #333; /* Color del texto del label */
+    display: block; /* Asegura que esté en una nueva línea */
+    margin-bottom: 8px; /* Espaciado debajo del label */
+    font-size: 1rem;
+}
+
+/* Styling for Inputs and Textareas */
+form input, 
+form textarea {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte al tamaño total */
+    transition: border-color 0.3s ease; /* Animación suave para el enfoque */
+}
+
+/* Styling for Input Focus */
+form input:focus, 
+form textarea:focus {
+    outline: none; /* Elimina el borde azul predeterminado */
+    border-color: #007bff; /* Color azul para el enfoque */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efecto de enfoque */
+}
+
+/* Styling for Textarea */
+form textarea {
+    min-height: 100px; /* Altura mínima para el textarea */
+    resize: vertical; /* Permite que el usuario ajuste la altura */
+}
+
+/* Styling for the Submit Button */
+form button[type="submit"] {
+    display: block;
+    width: 100%; /* Botón ancho completo */
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff; /* Texto blanco */
+    background-color: #007bff; /* Fondo azul */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s ease; /* Animación suave */
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form {
+        padding: 15px; /* Reduce el padding en pantallas pequeñas */
+    }
+    form label {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+    form button[type="submit"] {
+        font-size: 0.9rem; /* Ajusta el tamaño del botón */
+    }
+}
