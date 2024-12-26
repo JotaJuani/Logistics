@@ -4,6 +4,7 @@ Logística {% endblock %} {% block content %}
   id="carouselExampleCaptions"
   class="carousel slide mb-5"
   data-bs-ride="carousel"
+  style="height: 100vh"
 >
   <div class="carousel-indicators">
     <button
@@ -92,12 +93,16 @@ Logística {% endblock %} {% block content %}
 <section id="about" class="py-5 bg-light">
   <h2 class="text-center">Sobre Nosotros</h2>
   <p class="text-center">Información sobre la empresa y su misión.</p>
+  <div class="d-flex justify-content-center">
+    <a href="{% url 'about' %}" class="btn btn-primary">Sobre nosotros</a>
+  </div>
 </section>
 
 <section id="contact" class="py-5">
   <h2 class="text-center">Contáctanos</h2>
   <p class="text-center">Información de contacto y formulario.</p>
   <div class="d-flex justify-content-center">
-  <a href="{% url 'contact' %}" class="btn btn-primary">Contáctanos</a></div>
+    <a href="{% url 'contact' %}" class="btn btn-primary">Contáctanos</a>
+  </div>
 </section>
 {% endblock %}
