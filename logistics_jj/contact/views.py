@@ -3,7 +3,6 @@ from django.conf import settings
 from django.core.mail import send_mail, EmailMessage
 from .forms import ContactForm
 
-
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
