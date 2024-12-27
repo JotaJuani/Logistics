@@ -23,7 +23,7 @@ def loginUser(request):
 
         if user and user.check_password(password):
             login(request, user)
-            return redirect('login')
+            return redirect('home')
         else:
             print('Authentication failed')
             messages.error(request, 'Usuario o contraseña incorrecta')
