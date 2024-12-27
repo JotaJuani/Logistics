@@ -260,10 +260,7 @@ a:hover {
     border: 1px solid #ced4da;
   }
   
-  .navbar .badge {
-    background-color: #dc3545; /* Red badge for cart */
-    font-size: 0.8rem;
-  }
+
   
   /* Offcanvas Sidebar */
   .offcanvas {
@@ -307,9 +304,7 @@ a:hover {
     border-color: #ffffff;
   }
   
-  button.navbar-toggler .navbar-toggler-icon {
-    background-color: #ffffff;
-  }
+
 
   /* Responsive Design */
   @media (max-width: 768px) {
