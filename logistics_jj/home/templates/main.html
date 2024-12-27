@@ -64,8 +64,7 @@
                 aria-expanded="false"
               >
                 <i class="bi bi-person"></i>
-                {% if request.user.is_authenticated %} {{ request.user.username
-                }} {% else %} Iniciar Sesión {% endif %}
+                {% if request.user.is_authenticated %} {{ request.user.username }} {% else %} Iniciar Sesión {% endif %}
               </a>
               <ul class="dropdown-menu" aria-labelledby="userDropdown">
                 {% if request.user.is_authenticated %}

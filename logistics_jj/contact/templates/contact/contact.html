@@ -3,21 +3,34 @@
   {% block title %}Contacto{% endblock %}
 
 {% block content %}
-  <div class="contact-div">
-    <h1>Contacto</h1>
+  <div class="contact-div contact-form-container">
+  <h1 class="text-center">Contacto</h1>
+  <p class="text-center">¡Nos encantaría saber de ti! Por favor, completa el formulario y te responderemos lo antes posible.</p>
+  
+  <form action="{% url 'contact' %}" method="post" class="contact-form">
+    {% csrf_token %}
+    <!-- Nombre -->
     <div class="form-group">
       <label for="id_name">{{ form.name.label }}</label>
       {{ form.name }}
     </div>
+    
+    <!-- Correo Electrónico -->
     <div class="form-group">
       <label for="id_email">{{ form.email.label }}</label>
       {{ form.email }}
     </div>
+    
+    <!-- Mensaje -->
     <div class="form-group">
       <label for="id_content">{{ form.content.label }}</label>
       {{ form.content }}
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-  </div>
-
+    
+    <!-- Botón Enviar -->
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>
 {% endblock %}
