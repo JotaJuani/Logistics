@@ -4,7 +4,7 @@ Logística {% endblock %} {% block content %}
   id="carouselExampleCaptions"
   class="carousel slide mb-5"
   data-bs-ride="carousel"
-  style="height: 100vh"
+  
 >
   <div class="carousel-indicators">
     <button
@@ -83,11 +83,51 @@ Logística {% endblock %} {% block content %}
   </button>
 </div>
 
-<section id="services" class="py-5">
-  <h2 class="text-center">Nuestros Servicios</h2>
-  <p class="text-center">
-    Descripción de los servicios que ofrece la empresa de logística.
-  </p>
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestros Servicios</h2>
+    <p class="text-center mb-5">
+      Ofrecemos soluciones logísticas adaptadas a tus necesidades:
+    </p>
+    <div class="row text-center">
+      <!-- Primera tarjeta -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fa-solid fa-truck-moving fa-3x text-primary mb-3"></i>
+            <h5 class="card-title">Cargas Pesadas</h5>
+            <p class="card-text">Seguridad y eficiencia.</p>
+            <h6 class="card-description">Hasta 30.000 kg.</h6>
+            <h6 class="card-description-app">Seguimiento satelital con app</h6>
+          </div>
+        </div>
+      </div>
+      <!-- Segunda tarjeta -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fa-solid fa-truck fa-3x text-success mb-3"></i>
+            <h5 class="card-title">Cargas Medianas</h5>
+            <p class="card-text">Soluciones perfectas para volúmenes intermedios.</p>
+            <h6 class="card-description">Hasta 20.000 kg.</h6>
+            <h6 class="card-description-app">Seguimiento satelital con app</h6>
+          </div>
+        </div>
+      </div>
+      <!-- Tercera tarjeta -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <i class="fa-solid fa-truck-field fa-3x text-danger mb-3"></i>
+            <h5 class="card-title">Cargas Livianas</h5>
+            <p class="card-text">Rápido y confiable para envíos pequeños y urgentes.</p>
+            <h6 class="card-description">Hasta 10.0000 kg.</h6>
+            <h6 class="card-description-app">Seguimiento satelital con app</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="about" class="py-5 bg-light">
