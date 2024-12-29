@@ -97,7 +97,7 @@ Logística {% endblock %} {% block content %}
             <i class="fa-solid fa-truck-moving fa-3x text-primary mb-3"></i>
             <h5 class="card-title">Cargas Pesadas</h5>
             <p class="card-text">Seguridad y eficiencia.</p>
-            <h6 class="card-description">Hasta 30.000 kg.</h6>
+            <h6 class="card-description">Hasta 20.000 kg.</h6>
             <h6 class="card-description-app">Seguimiento satelital con app</h6>
           </div>
         </div>
@@ -109,7 +109,7 @@ Logística {% endblock %} {% block content %}
             <i class="fa-solid fa-truck fa-3x text-success mb-3"></i>
             <h5 class="card-title">Cargas Medianas</h5>
             <p class="card-text">Soluciones perfectas para volúmenes intermedios.</p>
-            <h6 class="card-description">Hasta 20.000 kg.</h6>
+            <h6 class="card-description">Hasta 5.000 kg.</h6>
             <h6 class="card-description-app">Seguimiento satelital con app</h6>
           </div>
         </div>
@@ -121,7 +121,7 @@ Logística {% endblock %} {% block content %}
             <i class="fa-solid fa-truck-field fa-3x text-danger mb-3"></i>
             <h5 class="card-title">Cargas Livianas</h5>
             <p class="card-text">Rápido y confiable para envíos pequeños y urgentes.</p>
-            <h6 class="card-description">Hasta 10.0000 kg.</h6>
+            <h6 class="card-description">Hasta 1.000 kg.</h6>
             <h6 class="card-description-app">Seguimiento satelital con app</h6>
           </div>
         </div>
@@ -130,11 +130,35 @@ Logística {% endblock %} {% block content %}
   </div>
 </section>
 
-<section id="about" class="py-5 bg-light">
-  <h2 class="text-center">Sobre Nosotros</h2>
-  <p class="text-center">Información sobre la empresa y su misión.</p>
-  <div class="d-flex justify-content-center">
-    <a href="{% url 'about' %}" class="btn btn-primary">Sobre nosotros</a>
+{% load static %}
+<section id="clients" class="py-5">
+  <div class="client-slider">
+    <div class="logos">
+      <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
+      <img src="{% static 'media/benitez-blanc-logo.jpg' %}" alt="Cliente 2">
+      <img src="{% static 'media/vital-logo.jpg' %}" alt="Cliente 3">
+      <img src="{% static 'media/carrier-logo.jpg' %}" alt="Cliente 4">
+      <img src="{% static 'media/logo5.png' %}" alt="Cliente 5">
+      <!-- Repetimos logos -->
+      <img src="{% static 'media/logo1.png' %}" alt="Cliente 1">
+      <img src="{% static 'media/logo2.png' %}" alt="Cliente 2">
+      <img src="{% static 'media/logo3.png' %}" alt="Cliente 3">
+      <img src="{% static 'media/logo4.png' %}" alt="Cliente 4">
+      <img src="{% static 'media/logo5.png' %}" alt="Cliente 5">
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-5 bg-light" style="position: relative; height: 400px; overflow: hidden;">
+  <div class="background-image"><div class="background-image" style="background-image: url('{% static "media/about_us_truck.jpg" %}');"></div>
+  <div class="content">
+    <div class="blur-box">
+      <h2 class="text-center">Sobre Nosotros</h2>
+      <p class="text-center">Lo que nos define y lo que soñamos alcanzar.</p>
+      <div class="d-flex justify-content-center">
+        <a href="{% url 'about' %}" class="btn btn-primary">Conócenos!</a>
+      </div>
+    </div>
   </div>
 </section>
 
