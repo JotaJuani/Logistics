@@ -130,21 +130,26 @@ Logística {% endblock %} {% block content %}
   </div>
 </section>
 
-{% load static %}
-<section id="clients" class="py-5">
-  <div class="client-slider">
-    <div class="logos">
-      <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
-      <img src="{% static 'media/benitez-blanc-logo.jpg' %}" alt="Cliente 2">
-      <img src="{% static 'media/vital-logo.jpg' %}" alt="Cliente 3">
-      <img src="{% static 'media/carrier-logo.jpg' %}" alt="Cliente 4">
-      <img src="{% static 'media/logo5.png' %}" alt="Cliente 5">
-      <!-- Repetimos logos -->
-      <img src="{% static 'media/logo1.png' %}" alt="Cliente 1">
-      <img src="{% static 'media/logo2.png' %}" alt="Cliente 2">
-      <img src="{% static 'media/logo3.png' %}" alt="Cliente 3">
-      <img src="{% static 'media/logo4.png' %}" alt="Cliente 4">
-      <img src="{% static 'media/logo5.png' %}" alt="Cliente 5">
+
+<section id="clients" class="py-5 text-white">
+  <div class="container text-center">
+    <div class="overlay py-5" style="background-color: rgba(0, 27, 87, 0.5);">
+      <h2>Empresas que confían en nosotros</h2>
+      <p>Más que clientes, son aliados estratégicos.</p>
+    </div>
+    <div class="client-slider mt-4">
+      <div class="logos">
+        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
+        <img src="{% static 'media/benitez-blanc-logo.jpg' %}" alt="Cliente 2">
+        <img src="{% static 'media/vital-logo.jpg' %}" alt="Cliente 3">
+        <img src="{% static 'media/carrier-logo.jpg' %}" alt="Cliente 4">
+        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5">
+        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
+        <img src="{% static 'media/benitez-blanc-logo.jpg' %}" alt="Cliente 2">
+        <img src="{% static 'media/vital-logo.jpg' %}" alt="Cliente 3">
+        <img src="{% static 'media/carrier-logo.jpg' %}" alt="Cliente 4">
+        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5">
+      </div>
     </div>
   </div>
 </section>
