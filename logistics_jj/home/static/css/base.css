@@ -4,6 +4,112 @@ body {
     height: 100%;
     margin: 0; 
   }
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap; /* Esto permite que los elementos se envuelvan */
+  }
+/* Sección del mapa */
+.map-section {
+    
+    background-color: #e9ecef; /* Color de fondo claro */
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.map-container {
+    width: 100%;
+    height: 80%; /* Tamaño ajustado para el mapa */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Sección del cotizador */
+.quote-section {
+    
+    background-color: #ffffff;
+    border-left: 2px solid #dee2e6; /* Separador entre mapa y cotizador */
+    padding: 20px 30px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos del formulario */
+.form-label {
+    font-weight: bold;
+    color: #555555;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    font-size: 0.95rem;
+}
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+  #certifications {
+    background-color: #f9f9f9;
+  }
+  
+  #certifications h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .certification img {
+    max-height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .certification img:hover {
+    transform: scale(1.1);
+  }
+  
+  .certification h5 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .certification p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .certification {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .certification:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
   #clients {
     background-color: #f8f9fa;
     overflow: hidden;
