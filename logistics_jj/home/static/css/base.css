@@ -4,6 +4,18 @@ body {
     height: 100%;
     margin: 0; 
   }
+  #container {
+    height: 500px;
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
 
   .wrapper {
     display: flex;
