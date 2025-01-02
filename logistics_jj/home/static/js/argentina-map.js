@@ -51,7 +51,7 @@
             },
             data: [
                 { id: 'Buenos Aires', lat: -34.603722, lon: -58.381592 },
-                { id: 'CABA', lat: -34.603722, lon: -58.381592 }, // Ciudad Autónoma de Buenos Aires
+                { id: 'CABA', lat: -34.603722, lon: -58.381592 }, 
                 { id: 'Córdoba', lat: -31.416667, lon: -64.183333 },
                 { id: 'Santa Fe', lat: -32.94682, lon: -60.63932 },
                 { id: 'Mendoza', lat: -32.889458, lon: -68.845839 },
@@ -117,6 +117,9 @@
             { id: 'BA - La Pampa', path: pointsToPath(bsAsPoint, chart.get('La Pampa')) },
             { id: 'BA - Neuquén', path: pointsToPath(bsAsPoint, chart.get('Neuquén')) },
             { id: 'BA - Santa Cruz', path: pointsToPath(bsAsPoint, chart.get('Santa Cruz')) },
+            { id: 'BA - Formosa', path: pointsToPath(bsAsPoint, chart.get('Formosa')) },
+            { id: 'BA - Tucumán', path: pointsToPath(bsAsPoint, chart.get('Tucumán')) },
+            { id: 'BA - San Juan', path: pointsToPath(bsAsPoint, chart.get('San Juan')) },
             
             
         ]
