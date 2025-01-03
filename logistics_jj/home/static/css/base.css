@@ -4,6 +4,37 @@ body {
     height: 100%;
     margin: 0; 
   }
+  .about-us-section {
+    width: 100%;
+}
+
+.hero-section-about {
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+    background-position: center; /* Centra la imagen */
+    height: 60vh; /* Ajusta la altura según sea necesario */
+    display: flex; /* Centra el contenido */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+.hero-content-about {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hero-content-about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content-about p {
+    font-size: 1.2rem;
+    margin: 0;
+}
   #container {
     height: 500px;
     min-width: 310px;
@@ -491,7 +522,7 @@ a:hover {
   }
   
   .navbar .navbar-brand img {
-    height: 40px;
+    height: 80px;
   }
   
   .navbar .nav-link {

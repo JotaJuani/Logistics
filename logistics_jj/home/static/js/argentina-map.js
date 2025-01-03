@@ -1,23 +1,23 @@
 (async () => {
-    // Cargar el mapa de Argentina
+    
     const mapData = await fetch(
         'https://code.highcharts.com/mapdata/countries/ar/ar-all.topo.json'
     ).then(response => response.json());
 
-    // Inicializar el gráfico
+    
     const chart = Highcharts.mapChart('container', {
         chart: {
-            map: 'countries/ar/ar-all', // Mapa de Argentina
-            borderWidth: 0, // Elimina bordes
-            backgroundColor: 'transparent', // Fondo transparente
+            map: 'countries/ar/ar-all', 
+            borderWidth: 0, 
+            backgroundColor: 'transparent', 
         },
     
         title: {
-            text: null, // Sin título
+            text: null, 
         },
     
         legend: {
-            enabled: false, // Sin leyenda
+            enabled: false, 
         },
     
         accessibility: {
@@ -27,23 +27,22 @@
         },
     
         credits: {
-            enabled: false, // Sin créditos
+            enabled: false, 
         },
     
         mapNavigation: {
-            enabled: false, // Habilitar navegación
-            enableMouseWheelZoom: false, // Zoom con el scroll del mouse
+            enabled: false, 
+            enableMouseWheelZoom: false, 
         },
         
         series: [{
-            // Mapa base de Argentina
             mapData,
             name: 'Argentina',
             borderColor: '#707070',
             nullColor: 'rgba(200, 200, 200, 0.3)',
             showInLegend: false
         }, {
-            // Especificar ciudades con latitud/longitud
+            
             type: 'mappoint',
             name: 'Ciudades',
             dataLabels: {
@@ -79,7 +78,7 @@
         }]
     });
 
-    // Función para generar trayectorias curvas entre dos puntos
+    
     function pointsToPath(fromPoint, toPoint, invertArc) {
         const
             from = chart.mapView.lonLatToProjectedUnits(fromPoint),
@@ -95,7 +94,7 @@
 
     const bsAsPoint = chart.get('Buenos Aires');
 
-    // Agregar rutas de vuelo desde Buenos Aires
+    
     chart.addSeries({
         name: 'Rutas desde Buenos Aires',
         type: 'mapline',
