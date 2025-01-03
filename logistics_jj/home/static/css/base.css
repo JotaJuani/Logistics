@@ -9,10 +9,10 @@ body {
 }
 
 .hero-section-about {
-    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
-    background-position: center; /* Centra la imagen */
-    height: 60vh; /* Ajusta la altura según sea necesario */
-    display: flex; /* Centra el contenido */
+    background-size: cover; 
+    background-position: center; 
+    height: 70vh; 
+    display: flex; 
     justify-content: center;
     align-items: center;
     position: relative;
@@ -20,7 +20,7 @@ body {
 }
 
 .hero-content-about {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    background: rgba(0, 0, 0, 0.6); 
     padding: 1.5rem 2rem;
     border-radius: 10px;
     text-align: center;
@@ -52,12 +52,12 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    flex-wrap: wrap; /* Esto permite que los elementos se envuelvan */
+    flex-wrap: wrap; 
   }
-/* Sección del mapa */
+
 .map-section {
     
-    background-color: #e9ecef; /* Color de fondo claro */
+    background-color: #e9ecef; 
     
     flex-direction: column;
     justify-content: center;
@@ -67,7 +67,7 @@ body {
 
 .map-container {
     width: 100%;
-    height: 80%; /* Tamaño ajustado para el mapa */
+    height: 80%; 
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -78,16 +78,16 @@ body {
     color: #333;
 }
 
-/* Sección del cotizador */
+
 .quote-section {
     
     background-color: #ffffff;
-    border-left: 2px solid #dee2e6; /* Separador entre mapa y cotizador */
+    border-left: 2px solid #dee2e6; 
     padding: 20px 30px;
     box-shadow: -4px 0 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilos del formulario */
+
 .form-label {
     font-weight: bold;
     color: #555555;
@@ -176,12 +176,12 @@ button:hover {
     width: 100px;
     height: auto;
     margin: 0 20px;
-    filter: grayscale(100%); /* Estilo elegante */
+    filter: grayscale(100%); 
     transition: filter 0.3s;
   }
   
   .logos img:hover {
-    filter: none; /* Color al pasar el mouse */
+    filter: none; 
   }
   
   @keyframes scroll {
@@ -198,14 +198,14 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("{% static 'media/about_us_truck.jpg' %}"); /* Imagen de fondo */
+    background-image: url("{% static 'media/about_us_truck.jpg' %}"); 
     background-size: cover;
     background-position: center;
     z-index: 1;
-    filter: brightness(0.7); /* Oscurece la imagen */
+    filter: brightness(0.7); 
   }
 
-  /* Estilo del contenido */
+  
   #about .content {
     position: relative;
     z-index: 2;
@@ -215,10 +215,10 @@ button:hover {
     height: 100%;
   }
 
-  /* Estilo del recuadro con efecto blur */
+  
   #about .blur-box {
-    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
-    backdrop-filter: blur(5px); /* Efecto blur */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px); 
     padding: 20px 40px;
     border-radius: 10px;
     text-align: center;
@@ -226,7 +226,7 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
 
-  /* Estilo adicional para el texto y botón */
+  
   #about h2 {
     margin-bottom: 15px;
     font-size: 2rem;
@@ -240,9 +240,9 @@ button:hover {
   #about .btn {
     font-size: 1rem;
   }
-/* General styles for the section */
+
 #services {
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa; 
   padding: 50px 0;
 }
 .card-description{
@@ -268,13 +268,12 @@ button:hover {
 
 /* Card styles */
 .card {
-  border-radius: 10px; /* Rounded corners */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; }
 
 .card:hover {
-  transform: translateY(-10px); /* Lift card slightly on hover */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .card-body {
@@ -283,7 +282,7 @@ button:hover {
 }
 
 .card i {
-  font-size: 3rem; /* Icon size */
+  font-size: 3rem; 
   margin-bottom: 15px;
 }
 
@@ -398,8 +397,18 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive design */
+
 @media (max-width: 576px) {
+  .hero-section-about {
+    background-size: cover; 
+    background-position: center; 
+    height: 40vh; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+}
   .container {
     padding: 0;
   }
@@ -418,7 +427,7 @@ a:hover {
 }
   .contact-form-container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 120px auto;
     padding: 20px;
     background: #f8f9fa;
     border-radius: 10px;
@@ -459,33 +468,7 @@ a:hover {
   .contact-form-container .btn:hover {
     background-color: #0056b3;
   }
-  .about-us-section .hero-section {
-    background: url('https://via.placeholder.com/1920x400') no-repeat center center/cover;
-    height: 300px;
-    color: grey;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .about-us-section .team-photo {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-  .about-us-section .text-center {
-    text-align: center;
-  }
-  .about-us-section .bg-light {
-    background-color: #f8f9fa;
-  }
-  .about-us-section .my-5 {
-    margin: 3rem 0;
-  }
-  .about-us-section .py-5 {
-    padding: 3rem 0;
-  }
+  
   #carouselExampleCaptions {
     height: 100%;
 }

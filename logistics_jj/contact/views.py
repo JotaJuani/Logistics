@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail, EmailMessage
 from .forms import ContactForm
+from django.contrib import messages
 
 def contact(request):
     if request.method == 'POST':
@@ -11,7 +12,7 @@ def contact(request):
             name = request.POST['name']
             email = request.POST['email']
             content = request.POST['content']
-
+        try:
             email_message = EmailMessage(
                 subject=f'Contact Form from {name}',
                 body=content,
@@ -20,7 +21,12 @@ def contact(request):
                 reply_to=[email],)
             email_message.send(fail_silently=False),
 
-            return render(request, 'contact/contact_valid.html')
+            messages.success(request, 'El mensaje se ha enviado correctamente. ¡Gracias por contactarnos!')
+        except Exception as e:
+                # Mensaje de error si algo falla
+            messages.error(request, 'Hubo un error al enviar el mensaje. Por favor, inténtalo nuevamente.')
+
+        return redirect('contact')
     else:
         form = ContactForm()
 

@@ -6,10 +6,17 @@
   <div class="contact-div contact-form-container">
   <h1 class="text-center">Contacto</h1>
   <p class="text-center">¡Nos encantaría saber de ti! Por favor, completa el formulario y te responderemos lo antes posible.</p>
-  
+    {% if messages %}
+  <div class="mt-4">
+    {% for message in messages %}
+      <div class="alert alert-info" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
   <form action="{% url 'contact' %}" method="post" class="contact-form">
     {% csrf_token %}
-    <!-- Nombre -->
     <div class="form-group">
       <label for="id_name">{{ form.name.label }}</label>
       {{ form.name }}
@@ -33,4 +40,5 @@
     </div>
   </form>
 </div>
+
 {% endblock %}
