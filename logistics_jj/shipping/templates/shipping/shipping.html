@@ -1,15 +1,18 @@
 {% extends "main.html" %} {% load static %} {% block title %} Iniciar
 sesión o Registrarse {% endblock %} {% block content %}
-<div>
-    <h1>Calculadora de Envíos</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Calcular Envío</button>
-    </form>
-    
-    {% if cost is not None %}
-        <h2>El costo de envío es: ${{ cost|floatformat:2 }}</h2>
-    {% endif %}
+<div class="container mt-5">
+  <h1 class="text-center">Resultado de tu Cotización</h1>
+
+  {% if cost %}
+    <div class="alert alert-info text-center" role="alert">
+      <p>Costo estimado de envío: <strong>${{ cost }}</strong></p>
+      <p>Desde: {{ direccion_partida }}</p>
+      <p>Hasta: {{ direccion_llegada }}</p>
+    </div>
+  {% else %}
+    <div class="alert alert-danger text-center" role="alert">
+      <p>No se pudieron calcular los costos. Por favor, verifica los datos ingresados.</p>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}

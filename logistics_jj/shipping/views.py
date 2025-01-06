@@ -1,25 +1,35 @@
 from django.shortcuts import render
-from django.shortcuts import render
-from .forms import ShippingForm
-from .utils import get_coordinates, calculate_distance
-
-WAREHOUSE_COORDS = (37.7749, -122.4194)  
 
 def calculate_shipping(request):
+    # Variables iniciales
     cost = None
-    if request.method == "POST":
-        form = ShippingForm(request.POST)
-        if form.is_valid():
-            address = form.cleaned_data['address']
-            customer_coords = get_coordinates(address)
-            
-            if customer_coords:
-                distance = calculate_distance(WAREHOUSE_COORDS, customer_coords)
-                # Reglas para calcular costo (ejemplo: $5 base + $1 por km)
-                cost = 5 + (1 * distance)
-            else:
-                form.add_error('address', "No se pudo encontrar la dirección.")
-    else:
-        form = ShippingForm()
 
-    return render(request, 'shipping/shipping.html', {'form': form, 'cost': cost})
+    # Obtener parámetros del formulario
+    direccion_partida = request.GET.get('direccion_partida')
+    direccion_llegada = request.GET.get('direccion_llegada')
+    peso = request.GET.get('peso')
+    largo = request.GET.get('largo')
+    ancho = request.GET.get('ancho')
+    alto = request.GET.get('alto')
+
+    if direccion_partida and direccion_llegada and peso and largo and ancho and alto:
+        # Convertir datos numéricos
+        try:
+            peso = float(peso)
+            largo = float(largo)
+            ancho = float(ancho)
+            alto = float(alto)
+
+            # Lógica de cálculo del costo
+            volumen = largo * ancho * alto
+            cost = peso * 0.1 + volumen * 0.05  # Ejemplo de fórmula
+
+        except ValueError:
+            cost = "Error en los datos. Verifica los valores numéricos."
+
+    # Renderizar plantilla con el costo
+    return render(request, 'shipping/shipping.html', {
+        'cost': cost,
+        'direccion_partida': direccion_partida,
+        'direccion_llegada': direccion_llegada
+    })

@@ -4,7 +4,6 @@ Logística {% endblock %} {% block content %}
   id="carouselExampleCaptions"
   class="carousel slide mb-5"
   data-bs-ride="carousel"
-  
 >
   <div class="carousel-indicators">
     <button
@@ -84,69 +83,117 @@ Logística {% endblock %} {% block content %}
 </div>
 
 <div class="container-fluid">
-    <div class="wrapper d-flex flex-column flex-md-row">
-        <!-- Contenedor de las columnas (fila) -->
-        <div class="row w-100">
-            <!-- Sección del mapa -->
-            <div class="map-section col-12 col-md-6 p-3">
-                <h2 class="text-center" id="titulo">Durante este 2024 hemos recorrido 0 Kilómetros</h2>
-                <!-- Scripts -->
-                <script src="{% static 'js/kilometros-title.js' %}"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.10.0/proj4.js" integrity="sha512-e3rsOu6v8lmVnZylXpOq3DO/UxrCgoEMqosQxGygrgHlves9HTwQzVQ/dLO+nwSbOSAecjRD7Y/c4onmiBVo6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-                <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-                <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-                <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
-                <script src="{% static 'js/argentina-map.js' %}"></script>
-                
+  <div class="wrapper d-flex flex-column flex-md-row">
+    <!-- Contenedor de las columnas (fila) -->
+    <div class="row w-100">
+      <!-- Sección del mapa -->
+      <div class="map-section col-12 col-md-6 p-3">
+        <h2 class="text-center" id="titulo">
+          Durante este 2024 hemos recorrido 0 Kilómetros
+        </h2>
+        <!-- Scripts -->
+        <script src="{% static 'js/kilometros-title.js' %}"></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.10.0/proj4.js"
+          integrity="sha512-e3rsOu6v8lmVnZylXpOq3DO/UxrCgoEMqosQxGygrgHlves9HTwQzVQ/dLO+nwSbOSAecjRD7Y/c4onmiBVo6w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+        <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+        <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
+        <script src="{% static 'js/argentina-map.js' %}"></script>
 
-              <div id="container"></div>
-            </div>
+        <div id="container"></div>
+      </div>
 
-            <!-- Sección del cotizador -->
-            <div class="quote-section col-12 col-md-6 p-3">
-                <h1 class="text-center mb-4">Cotiza tu envío</h1>
-                <form>
-                    <!-- Direcciones -->
-                    <div class="mb-3">
-                        <label for="direccionPartida" class="form-label">Desde</label>
-                        <input type="text" class="form-control" id="direccionPartida" placeholder="Dirección de partida">
-                    </div>
-                    <div class="mb-3">
-                        <label for="direccionLlegada" class="form-label">Hasta</label>
-                        <input type="text" class="form-control" id="direccionLlegada" placeholder="Dirección de llegada">
-                    </div>
-
-                    <!-- Dimensiones y peso -->
-                    <div class="row">
-                        <div class="col-12 col-md-3 mb-3">
-                            <label for="peso" class="form-label">Peso (kg)</label>
-                            <input type="number" class="form-control" id="peso" placeholder="Peso">
-                        </div>
-                        <div class="col-12 col-md-3 mb-3">
-                            <label for="largo" class="form-label">Largo (cm)</label>
-                            <input type="number" class="form-control" id="largo" placeholder="Largo">
-                        </div>
-                        <div class="col-12 col-md-3 mb-3">
-                            <label for="ancho" class="form-label">Ancho (cm)</label>
-                            <input type="number" class="form-control" id="ancho" placeholder="Ancho">
-                        </div>
-                        <div class="col-12 col-md-3 mb-3">
-                            <label for="alto" class="form-label">Alto (cm)</label>
-                            <input type="number" class="form-control" id="alto" placeholder="Alto">
-                        </div>
-                    </div>
-
-                    <!-- Botón de cotización -->
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Calcular Envío</button>
-                    </div>
-                </form>
-            </div>
+      <!-- Sección del cotizador -->
+     <div class="quote-section col-12 col-md-6 p-3">
+      <h1 class="text-center mb-4">Cotiza tu envío</h1>
+      <form action="{% url 'shipping' %}" method="get">
+        <!-- Direcciones -->
+        <div class="mb-3">
+          <label for="direccionPartida" class="form-label">Desde</label>
+          <input
+            type="text"
+            class="form-control"
+            id="direccionPartida"
+            name="direccion_partida"
+            placeholder="Dirección de partida"
+            required
+          />
         </div>
+        <div class="mb-3">
+          <label for="direccionLlegada" class="form-label">Hasta</label>
+          <input
+            type="text"
+            class="form-control"
+            id="direccionLlegada"
+            name="direccion_llegada"
+            placeholder="Dirección de llegada"
+            required
+          />
+        </div>
+
+        <!-- Dimensiones y peso -->
+        <div class="row">
+          <div class="col-12 col-md-3 mb-3">
+            <label for="peso" class="form-label">Peso (kg)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="peso"
+              name="peso"
+              placeholder="Peso"
+              required
+            />
+          </div>
+          <div class="col-12 col-md-3 mb-3">
+            <label for="largo" class="form-label">Largo (cm)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="largo"
+              name="largo"
+              placeholder="Largo"
+              required
+            />
+          </div>
+          <div class="col-12 col-md-3 mb-3">
+            <label for="ancho" class="form-label">Ancho (cm)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="ancho"
+              name="ancho"
+              placeholder="Ancho"
+              required
+            />
+          </div>
+          <div class="col-12 col-md-3 mb-3">
+            <label for="alto" class="form-label">Alto (cm)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="alto"
+              name="alto"
+              placeholder="Alto"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Botón de cotización -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Calcular Envío</button>
+        </div>
+      </form>
     </div>
+    </div>
+  </div>
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <section id="services" class="py-5 bg-light">
   <div class="container">
@@ -173,7 +220,9 @@ Logística {% endblock %} {% block content %}
           <div class="card-body">
             <i class="fa-solid fa-truck fa-3x text-success mb-3"></i>
             <h5 class="card-title">Cargas Medianas</h5>
-            <p class="card-text">Soluciones perfectas para volúmenes intermedios.</p>
+            <p class="card-text">
+              Soluciones perfectas para volúmenes intermedios.
+            </p>
             <h6 class="card-description">Hasta 5.000 kg.</h6>
             <h6 class="card-description-app">Seguimiento satelital con app</h6>
           </div>
@@ -185,7 +234,9 @@ Logística {% endblock %} {% block content %}
           <div class="card-body">
             <i class="fa-solid fa-truck-field fa-3x text-danger mb-3"></i>
             <h5 class="card-title">Cargas Livianas</h5>
-            <p class="card-text">Rápido y confiable para envíos pequeños y urgentes.</p>
+            <p class="card-text">
+              Rápido y confiable para envíos pequeños y urgentes.
+            </p>
             <h6 class="card-description">Hasta 1.000 kg.</h6>
             <h6 class="card-description-app">Seguimiento satelital con app</h6>
           </div>
@@ -195,63 +246,97 @@ Logística {% endblock %} {% block content %}
   </div>
 </section>
 
-
 <section id="clients" class="py-5 text-white">
   <div class="container text-center">
-    <div class="overlay py-5" style="background-color: rgba(0, 27, 87, 0.5);">
+    <div class="overlay py-5" style="background-color: rgba(0, 27, 87, 0.5)">
       <h2>Empresas que confían en nosotros</h2>
       <p>Más que clientes, son aliados estratégicos.</p>
     </div>
     <div class="client-slider mt-4">
       <div class="logos">
-        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
-        <img src="{% static 'media/benitez-blanc-logo.png' %}" alt="Cliente 2">
-        <img src="{% static 'media/vital-logo.png' %}" alt="Cliente 3">
-        <img src="{% static 'media/carrier-logo.png' %}" alt="Cliente 4">
-        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5">
-        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1">
-        <img src="{% static 'media/benitez-blanc-logo.png' %}" alt="Cliente 2">
-        <img src="{% static 'media/vital-logo.png' %}" alt="Cliente 3">
-        <img src="{% static 'media/carrier-logo.png' %}" alt="Cliente 4">
-        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5">
+        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1" />
+        <img
+          src="{% static 'media/benitez-blanc-logo.png' %}"
+          alt="Cliente 2"
+        />
+        <img src="{% static 'media/vital-logo.png' %}" alt="Cliente 3" />
+        <img src="{% static 'media/carrier-logo.png' %}" alt="Cliente 4" />
+        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5" />
+        <img src="{% static 'media/riegos-valley.png' %}" alt="Cliente 1" />
+        <img
+          src="{% static 'media/benitez-blanc-logo.png' %}"
+          alt="Cliente 2"
+        />
+        <img src="{% static 'media/vital-logo.png' %}" alt="Cliente 3" />
+        <img src="{% static 'media/carrier-logo.png' %}" alt="Cliente 4" />
+        <img src="{% static 'media/pedigree-logo.png' %}" alt="Cliente 5" />
       </div>
     </div>
   </div>
 </section>
-
 
 <section id="certifications" class="py-5 bg-light">
   <div class="container text-center">
     <h2 class="mb-4">Estamos Capacitados</h2>
-    <p class="mb-5">Contamos con las certificaciones necesarias para garantizar un transporte seguro y profesional.</p>
+    <p class="mb-5">
+      Contamos con las certificaciones necesarias para garantizar un transporte
+      seguro y profesional.
+    </p>
     <div class="row">
       <div class="col-md-4">
         <div class="certification">
-          <img src="{% static 'media/cnrt-logo.jpg' %}" alt="CNRT" class="img-fluid mb-3">
+          <img
+            src="{% static 'media/cnrt-logo.jpg' %}"
+            alt="CNRT"
+            class="img-fluid mb-3"
+          />
           <h5>CNRT</h5>
-          <p>Certificación de transporte habilitada por la Comisión Nacional de Regulación del Transporte.</p>
+          <p>
+            Certificación de transporte habilitada por la Comisión Nacional de
+            Regulación del Transporte.
+          </p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="certification">
-          <img src="{% static 'media/senasa-logo.jpeg' %}" alt="SENASA" class="img-fluid mb-3">
+          <img
+            src="{% static 'media/senasa-logo.jpeg' %}"
+            alt="SENASA"
+            class="img-fluid mb-3"
+          />
           <h5>SENASA</h5>
-          <p>Garantizamos el cumplimiento de normativas sanitarias y fitosanitarias para transporte seguro.</p>
+          <p>
+            Garantizamos el cumplimiento de normativas sanitarias y
+            fitosanitarias para transporte seguro.
+          </p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="certification">
-          <img src="{% static 'media/iram-logo.png' %}" alt="ISO 9001" class="img-fluid mb-3">
+          <img
+            src="{% static 'media/iram-logo.png' %}"
+            alt="ISO 9001"
+            class="img-fluid mb-3"
+          />
           <h5>ISO 9001</h5>
-          <p>Certificación internacional de gestión de calidad en procesos de transporte.</p>
+          <p>
+            Certificación internacional de gestión de calidad en procesos de
+            transporte.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="py-5 bg-light" style="position: relative; height: 400px; overflow: hidden;">
-  <div class="background-image"><div class="background-image" style="background-image: url('{% static "media/about_us_truck.jpg" %}');"></div>
+<section
+  id="about"
+  class="py-5 bg-light"
+  style="position: relative; height: 400px; overflow: hidden"
+>
+  <div class="background-image">
+    <div class="background-image" style="background-image: url('{% static "media/about_us_truck.jpg" %}');">
+  </div>
   <div class="content">
     <div class="blur-box">
       <h2 class="text-center">Sobre Nosotros</h2>
