@@ -3,6 +3,8 @@ body {
     background-color: #f8f9fa;
     height: 100%;
     margin: 0; 
+    padding: 0;
+    overflow-x: hidden;
   }
 
   .shipping-container{
@@ -475,11 +477,13 @@ a:hover {
   }
   
   #carouselExampleCaptions {
-    height: 100%;
+    height: 100vh;
+    position: relative; 
 }
 
 #carouselExampleCaptions .carousel-inner {
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #carouselExampleCaptions .carousel-item {
@@ -487,8 +491,8 @@ a:hover {
 }
 
 #carouselExampleCaptions .carousel-item img {
-    width: 100%;
-    min-height: 100%;
+    max-width: 100%;
+    height: 100%;
     object-fit: cover;
     filter: brightness(0.7); 
 }
@@ -591,6 +595,7 @@ a:hover {
   } 
   /* Responsive Design */
   @media (max-width: 768px) {
+
     .navbar .nav-item {
       text-align: center;
     }
