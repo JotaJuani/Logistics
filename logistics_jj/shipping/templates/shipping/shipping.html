@@ -1,0 +1,15 @@
+{% extends "main.html" %} {% load static %} {% block title %} Iniciar
+sesión o Registrarse {% endblock %} {% block content %}
+<div>
+    <h1>Calculadora de Envíos</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Calcular Envío</button>
+    </form>
+    
+    {% if cost is not None %}
+        <h2>El costo de envío es: ${{ cost|floatformat:2 }}</h2>
+    {% endif %}
+</div>
+{% endblock %}

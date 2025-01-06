@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'contact',
     'account',
     'about',
+    'shipping',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
