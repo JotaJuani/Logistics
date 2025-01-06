@@ -1,35 +1,48 @@
 from django.shortcuts import render
+import requests
+from django.conf import settings
+from django.shortcuts import render
 
 def calculate_shipping(request):
-    # Variables iniciales
     cost = None
-
-    # Obtener parámetros del formulario
+    distance_km = None
     direccion_partida = request.GET.get('direccion_partida')
     direccion_llegada = request.GET.get('direccion_llegada')
-    peso = request.GET.get('peso')
-    largo = request.GET.get('largo')
-    ancho = request.GET.get('ancho')
-    alto = request.GET.get('alto')
+    peso = request.GET.get('peso', 0)
+    largo = request.GET.get('largo', 0)
+    ancho = request.GET.get('ancho', 0)
+    alto = request.GET.get('alto', 0)
 
-    if direccion_partida and direccion_llegada and peso and largo and ancho and alto:
-        # Convertir datos numéricos
-        try:
-            peso = float(peso)
-            largo = float(largo)
-            ancho = float(ancho)
-            alto = float(alto)
+    if direccion_partida and direccion_llegada:
+        # Llamar a la API de Google Maps
+        api_key = settings.GOOGLE_MAPS_API_KEY
+        url = (
+            f"https://maps.googleapis.com/maps/api/distancematrix/json"
+            f"?origins={direccion_partida}"
+            f"&destinations={direccion_llegada}"
+            f"&units=metric"
+            f"&key={api_key}"
+        )
+        response = requests.get(url)
+        data = response.json()
 
-            # Lógica de cálculo del costo
-            volumen = largo * ancho * alto
-            cost = peso * 0.1 + volumen * 0.05  # Ejemplo de fórmula
+        if response.status_code == 200 and data['status'] == 'OK':
+            try:
+                # Obtener la distancia en kilómetros
+                distance_km = data['rows'][0]['elements'][0]['distance']['value'] / 1000  # Convertir a km
 
-        except ValueError:
-            cost = "Error en los datos. Verifica los valores numéricos."
+                # Calcular costo (fórmula personalizada)
+                peso = float(peso)
+                volumen = float(largo) * float(ancho) * float(alto)
+                cost = (distance_km * 0.5) + (peso * 0.1) + (volumen * 0.05)
+            except (KeyError, ValueError):
+                cost = "Error al procesar los datos de la API."
+        else:
+            cost = "Error al conectar con Google Maps API."
 
-    # Renderizar plantilla con el costo
     return render(request, 'shipping/shipping.html', {
         'cost': cost,
+        'distance_km': distance_km,
         'direccion_partida': direccion_partida,
         'direccion_llegada': direccion_llegada
     })

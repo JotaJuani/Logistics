@@ -1,18 +1,70 @@
 {% extends "main.html" %} {% load static %} {% block title %} Iniciar
 sesión o Registrarse {% endblock %} {% block content %}
 <div class="container mt-5">
+<div class="shipping-container">
   <h1 class="text-center">Resultado de tu Cotización</h1>
 
   {% if cost %}
     <div class="alert alert-info text-center" role="alert">
       <p>Costo estimado de envío: <strong>${{ cost }}</strong></p>
+      <p>Distancia: {{ distance_km }} km</p>
       <p>Desde: {{ direccion_partida }}</p>
       <p>Hasta: {{ direccion_llegada }}</p>
     </div>
+
+    <!-- Contenedor del mapa -->
+    <div id="map" style="width: 100%; height: 400px;"></div>
   {% else %}
     <div class="alert alert-danger text-center" role="alert">
       <p>No se pudieron calcular los costos. Por favor, verifica los datos ingresados.</p>
     </div>
   {% endif %}
 </div>
+</div>
+
+<!-- Cargar el script de Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+<script>
+  function initMap() {
+    // Coordenadas de las direcciones (ejemplo: usar valores reales de tu lógica en el backend)
+    const origin = { lat: -34.603684, lng: -58.381559 }; // Reemplazar por coordenadas reales
+    const destination = { lat: -34.6075682, lng: -58.4370894 }; // Reemplazar por coordenadas reales
+
+    // Crear el mapa
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: origin,
+    });
+
+    // Agregar marcadores
+    const markerA = new google.maps.Marker({
+      position: origin,
+      map: map,
+      title: "Desde: {{ direccion_partida }}",
+    });
+
+    const markerB = new google.maps.Marker({
+      position: destination,
+      map: map,
+      title: "Hasta: {{ direccion_llegada }}",
+    });
+
+    // Agregar la ruta entre los puntos
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+
+    const request = {
+      origin: origin,
+      destination: destination,
+      travelMode: "DRIVING",
+    };
+
+    directionsService.route(request, (result, status) => {
+      if (status === "OK") {
+        directionsRenderer.setDirections(result);
+      }
+    });
+  }
+</script>
 {% endblock %}

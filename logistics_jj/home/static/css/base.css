@@ -4,6 +4,10 @@ body {
     height: 100%;
     margin: 0; 
   }
+
+  .shipping-container{
+    margin-top: 140px;
+  }
   .about-us-section {
     width: 100%;
 }
@@ -301,6 +305,7 @@ button:hover {
 
   /* General container styling */
 .container {
+  
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
