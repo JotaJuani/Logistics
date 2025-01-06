@@ -69,9 +69,7 @@
               <ul class="dropdown-menu" aria-labelledby="userDropdown">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                  <span class="dropdown-item disabled"
-                    >{{ request.user.username }}</span
-                  >
+                  <span class="dropdown-item disabled">{{ request.user.username }}</span>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'logout' %}"
