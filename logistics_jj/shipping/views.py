@@ -3,6 +3,8 @@ import requests
 from django.conf import settings
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login 
 
 @login_required
 def calculate_shipping(request):
@@ -41,7 +43,7 @@ def calculate_shipping(request):
                 cost = "Error al procesar los datos de la API."
         else:
             cost = "Error al conectar con Google Maps API."
-
+        
     return render(request, 'shipping/shipping.html', {
         'cost': cost,
         'distance_km': distance_km,
