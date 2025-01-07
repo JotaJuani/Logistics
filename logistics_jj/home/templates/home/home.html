@@ -275,6 +275,7 @@ Logística {% endblock %} {% block content %}
 </section>
 
 <section id="certifications" class="py-5 bg-light">
+<header class="hero-section-certificates" style="background-image: url('{% static 'media/background_4.png' %}');">
   <div class="container text-center">
     <h2 class="mb-4">Estamos Capacitados</h2>
     <p class="mb-5">
@@ -326,6 +327,7 @@ Logística {% endblock %} {% block content %}
       </div>
     </div>
   </div>
+  </header>
 </section>
 
 <section
@@ -348,10 +350,14 @@ Logística {% endblock %} {% block content %}
 </section>
 
 <section id="contact" class="py-5">
+<header class="hero-section-contact" style="background-image: url('{% static 'media/background_2.png' %}');">
+<div class="container text-center">
   <h2 class="text-center">Contáctanos</h2>
-  <p class="text-center">Información de contacto y formulario.</p>
+  <p class="text-center"><strong>Tu carga, nuestro compromiso.</strong> Contáctanos y te ayudaremos a gestionar el transporte de manera eficiente y segura.</p>
   <div class="d-flex justify-content-center">
     <a href="{% url 'contact' %}" class="btn btn-primary">Contáctanos</a>
+  </div>
+  </header>
   </div>
 </section>
 {% endblock %}

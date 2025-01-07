@@ -7,6 +7,30 @@ body {
     overflow-x: hidden;
   }
 
+  .hero-section-contact {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px; /* Ajusta según tus necesidades */
+    opacity: 0.9; /* Ajusta la opacidad */
+  }
+  .hero-section-certificates {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px; /* Ajusta según tus necesidades */
+    opacity: 0.9; /* Ajusta la opacidad */
+  }
+  
+  .container.text-center  {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido quede encima del overlay */
+    color: black; /* Ajusta el color del texto */
+    padding: 50px 20px; /* Espaciado interno */
+  }
+  
   .shipping-container{
     margin-top: 140px;
   }
