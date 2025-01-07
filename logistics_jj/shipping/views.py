@@ -16,7 +16,7 @@ def calculate_shipping(request):
     alto = request.GET.get('alto', 0)
 
     if direccion_partida and direccion_llegada:
-        # Llamar a la API de Google Maps
+        
         api_key = settings.GOOGLE_MAPS_API_KEY
         url = (
             f"https://maps.googleapis.com/maps/api/distancematrix/json"
