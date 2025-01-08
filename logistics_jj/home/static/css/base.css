@@ -505,22 +505,22 @@ a:hover {
   
   .contact-form-container .btn {
     padding: 10px 20px;
-    background-color: #007bff;
+    
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .contact-form-container .btn:hover {
-    background-color: #0056b3;
-  }
+
   
   #carouselExampleCaptions {
     height: 100vh;
     position: relative; 
 }
-
+.carousel-control-next, .carousel-control-prev {
+  background-color: transparent !important;
+}
 #carouselExampleCaptions .carousel-inner {
     height: 100vh;
     overflow: hidden;
