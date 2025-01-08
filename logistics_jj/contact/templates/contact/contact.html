@@ -5,7 +5,7 @@
 {% block content %}
   <div class="contact-div contact-form-container">
   <h1 class="text-center">Contacto</h1>
-  <p class="text-center">"¡Hablemos! Envíanos tu mensaje y descubramos juntos nuevas posibilidades."</p>
+  <p class="text-center">Contáctanos y déjanos ser parte de tu próximo gran proyecto.</p>
     {% if messages %}
   <div class="mt-4">
     {% for message in messages %}
@@ -39,6 +39,9 @@
       <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
   </form>
+  <a class="logo-contact">
+          <img src="{% static 'media/logo_1png.png' %}" alt="Logo"/>          
+        </a>
 </div>
 
 {% endblock %}

@@ -6,29 +6,45 @@ body {
     padding: 0;
     overflow-x: hidden;
   }
+  .logo-about{
+    display:flex;
+    justify-content: center;
+  }
+  .logo-about img {
+    width: 200px; 
+    height: 150px;
+}
 
+.logo-contact{
+  display:flex;
+  justify-content: center;
+}
+.logo-contact img {
+  width: 110px; 
+  height: 85px;
+}
   .hero-section-contact {
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 400px; /* Ajusta según tus necesidades */
-    opacity: 0.9; /* Ajusta la opacidad */
+    min-height: 400px; 
+    opacity: 0.9; 
   }
   .hero-section-certificates {
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 400px; /* Ajusta según tus necesidades */
-    opacity: 0.9; /* Ajusta la opacidad */
+    min-height: 400px; 
+    opacity: 0.9; 
   }
   
   .container.text-center  {
     position: relative;
-    z-index: 2; /* Asegura que el contenido quede encima del overlay */
-    color: black; /* Ajusta el color del texto */
-    padding: 50px 20px; /* Espaciado interno */
+    z-index: 2; 
+    color: black; 
+    padding: 50px 20px; 
   }
   
   .shipping-container{
@@ -387,7 +403,7 @@ form p {
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
-/* Button styling */
+
 button[type="submit"] {
   background-color: #007bff;
   color: #ffffff;
@@ -405,7 +421,7 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Alert styling */
+
 .alert {
   margin-bottom: 20px;
 }
@@ -533,7 +549,7 @@ a:hover {
   }
   /* Navbar Styles */
   .navbar {
-    background-color: #0056b3; /* Corporate blue color */
+    background-color: #0056b3; 
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -547,7 +563,7 @@ a:hover {
   }
   
   .navbar .nav-link:hover {
-    color: #d1ecf1; /* Light blue for hover */
+    color: #d1ecf1; 
   }
   
   .navbar .nav-item.dropdown .dropdown-menu {
@@ -560,7 +576,7 @@ a:hover {
   }
   
   .navbar .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
-    background-color: #003c80; /* Darker blue */
+    background-color: #003c80; 
   }
   
   .navbar .search-click {
@@ -573,7 +589,16 @@ a:hover {
     background-color: #ffffff;
     border: 1px solid #ced4da;
   }
-  
+  .navbar-scrolled {
+    background-color: #0056b3; 
+    height: 60px; 
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-scrolled .navbar-brand img {
+    height: 50px; 
+    transition: height 0.3s ease-in-out;
+}
 
   
   /* Offcanvas Sidebar */
