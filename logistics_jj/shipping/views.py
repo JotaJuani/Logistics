@@ -31,13 +31,13 @@ def calculate_shipping(request):
     if direccion_partida and direccion_llegada:
         api_key = settings.GOOGLE_MAPS_API_KEY
         
-        # Obtener coordenadas de partida y llegada
+        
         partida_lat, partida_lng = get_coordinates(direccion_partida, api_key)
         llegada_lat, llegada_lng = get_coordinates(direccion_llegada, api_key)
         
-        # Validar que las coordenadas sean válidas
+        
         if partida_lat and llegada_lat:
-            # Calcular distancia
+            
             url = (
                 f"https://maps.googleapis.com/maps/api/distancematrix/json"
                 f"?origins={partida_lat},{partida_lng}"
@@ -50,7 +50,7 @@ def calculate_shipping(request):
 
             if response.status_code == 200 and data['status'] == 'OK':
                 distance_km = data['rows'][0]['elements'][0]['distance']['value'] / 1000
-                # Calcular costo
+                
                 peso = float(peso)
                 volumen = float(largo) * float(ancho) * float(alto)
                 cost = (distance_km * 0.5) + (peso * 0.1) + (volumen * 0.05)

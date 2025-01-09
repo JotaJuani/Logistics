@@ -1,10 +1,10 @@
-{% extends "main.html" %} {% load static %} {% block title %} Iniciar
-sesión o Registrarse {% endblock %} {% block content %}
+{% extends "main.html" %} {% load static %} {% block title %} Cotizacion de
+envio {% endblock %} {% block content %}
 <div class="container mt-5">
-<div class="shipping-container">
-  <h1 class="text-center">Resultado de tu Cotización</h1>
+  <div class="shipping-container">
+    <h1 class="text-center">Tu Cotización</h1>
 
-  {% if cost %}
+    {% if cost %}
     <div class="alert alert-info text-center" role="alert">
       <p>Costo estimado de envío: <strong>${{ cost }}</strong></p>
       <p>Distancia: {{ distance_km }} km</p>
@@ -12,20 +12,32 @@ sesión o Registrarse {% endblock %} {% block content %}
       <p>Hasta: {{ direccion_llegada }}</p>
     </div>
 
-    <!-- Contenedor del mapa -->
-    <div id="map" style="width: 100%; height: 400px;"></div>
-  {% else %}
+    
+    <div id="map" style="width: 100%; height: 700px"></div>
+    {% else %}
     <div class="alert alert-danger text-center" role="alert">
-      <p>No se pudieron calcular los costos. Por favor, verifica los datos ingresados.</p>
+      <p>
+        No se pudieron calcular los costos. Por favor, verifica los datos
+        ingresados.
+      </p>
     </div>
-  {% endif %}
-</div>
+    {% endif %}
+  </div>
 </div>
 
-<!-- Cargar el script de Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_API_KEY}}&callback=initMap" async defer></script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap"
+  async
+  defer
+></script>
+
+
+{% if locations %}
 <script>
-    const locations = {{ locations|safe }};
+  const locations = {{ locations|safe }};
 </script>
 <script defer src="{% static 'js/custom-map.js' %}"></script>
-{% endblock %}
+{% else %}
+<p>No hay ubicaciones disponibles para mostrar en el mapa.</p>
+{% endif %} {% endblock %}
