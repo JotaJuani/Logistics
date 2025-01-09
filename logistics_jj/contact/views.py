@@ -23,7 +23,6 @@ def contact(request):
 
             messages.success(request, 'El mensaje se ha enviado correctamente. ¡Gracias por contactarnos!')
         except Exception as e:
-                # Mensaje de error si algo falla
             messages.error(request, 'Hubo un error al enviar el mensaje. Por favor, inténtalo nuevamente.')
 
         return redirect('contact')
