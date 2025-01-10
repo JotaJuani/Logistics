@@ -58,3 +58,9 @@ def register_User(request):
 
     context = {'form': form, 'page': page}
     return render(request, 'account/login_register.html', context)
+
+def password_reset(request):
+    return render(request, 'account/password_reset_email.html')
+
+def password_reset_form(request):
+    return render(request, 'account/password_reset_form.html')
