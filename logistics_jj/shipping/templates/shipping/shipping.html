@@ -30,7 +30,7 @@ envio {% endblock %} {% block content %}
     console.log(coordinates); 
 </script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap"
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
   async
   defer
 ></script>
@@ -39,5 +39,4 @@ envio {% endblock %} {% block content %}
 <script defer src="{% static 'js/custom-map.js' %}"></script>
 {% else %}
 <p>No hay ubicaciones disponibles para mostrar en el mapa.</p>
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}

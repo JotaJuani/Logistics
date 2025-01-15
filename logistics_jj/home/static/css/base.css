@@ -11,7 +11,7 @@ body {
     justify-content: center;
   }
   .logo-about img {
-    width: 200px; 
+    width: 250px; 
     height: 150px;
 }
 
@@ -20,7 +20,7 @@ body {
   justify-content: center;
 }
 .logo-contact img {
-  width: 110px; 
+  width: 140px; 
   height: 85px;
 }
   .hero-section-contact {

@@ -59,6 +59,6 @@ def calculate_shipping(request):
         'distance_km': distance_km,
         'direccion_partida': direccion_partida,
         'direccion_llegada': direccion_llegada,
-        'api_key': api_key,
+        
         'coordinates': json.dumps(coordinates) if coordinates else None,
     })

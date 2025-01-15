@@ -27,7 +27,7 @@
                 position: coordinates.destination,
                 map: map,
                 title: "Destino",
-                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // Marcador rojo
+                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", 
             });
 
             const request = {
