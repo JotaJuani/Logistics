@@ -1,13 +1,6 @@
 
-<script>
-    const coordinates = {{ coordinates|safe }};
-    console.log(coordinates);  // Verificar el valor en la consola del navegador
-</script>
-
-const coordinates = {{ coordinates|safe }};
-
         function initMap() {
-            if (!coordinates) {
+            if (!coordinates || !coordinates.origin || !coordinates.destination) {
                 console.error("No se encontraron coordenadas.");
                 return;
             }
@@ -20,6 +13,22 @@ const coordinates = {{ coordinates|safe }};
             const directionsService = new google.maps.DirectionsService();
             const directionsRenderer = new google.maps.DirectionsRenderer();
             directionsRenderer.setMap(map);
+            
+                // Crear el marcador para el origen
+            new google.maps.Marker({
+                position: coordinates.origin,
+                map: map,
+                title: "Origen",
+                icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png", // Marcador verde
+            });
+
+            // Crear el marcador para el destino
+            new google.maps.Marker({
+                position: coordinates.destination,
+                map: map,
+                title: "Destino",
+                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // Marcador rojo
+            });
 
             const request = {
                 origin: coordinates.origin,
@@ -35,3 +44,5 @@ const coordinates = {{ coordinates|safe }};
                 }
             });
         }
+
+window.initMap = initMap;

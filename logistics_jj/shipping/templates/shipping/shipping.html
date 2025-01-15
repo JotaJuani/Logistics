@@ -25,19 +25,19 @@ envio {% endblock %} {% block content %}
   </div>
 </div>
 
-
+<script>
+    const coordinates = {{ coordinates|safe }};
+    console.log(coordinates); 
+</script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_API_KEY }}&callback=initMap"
+  src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap"
   async
   defer
 ></script>
 
-
 {% if locations %}
-<script>
-  const locations = {{ locations|safe }};
-</script>
 <script defer src="{% static 'js/custom-map.js' %}"></script>
 {% else %}
 <p>No hay ubicaciones disponibles para mostrar en el mapa.</p>
-{% endif %} {% endblock %}
+{% endif %}
+{% endblock %}
