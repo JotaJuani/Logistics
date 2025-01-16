@@ -107,93 +107,19 @@ Logística {% endblock %} {% block content %}
 
         <div id="container"></div>
       </div>
-      <!-- Sección del cotizador -->
-     <div class="quote-section col-12 col-md-6 p-3">
+      <div class="quote-section col-12 col-md-6 p-3">
       <h1 class="text-center mb-4">Cotiza tu envío</h1>
-      <form action="{% url 'shipping' %}" method="get">
-        <!-- Direcciones -->
-        <div class="mb-3">
-          <label for="direccionPartida" class="form-label">Desde</label>
-          <input
-            type="text"
-            class="form-control"
-            id="direccionPartida"
-            name="direccion_partida"
-            placeholder="Dirección de partida"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="direccionLlegada" class="form-label">Hasta</label>
-          <input
-            type="text"
-            class="form-control"
-            id="direccionLlegada"
-            name="direccion_llegada"
-            placeholder="Dirección de llegada"
-            required
-          />
-        </div>
-
-        <!-- Dimensiones y peso -->
-        <div class="row">
-          <div class="col-12 col-md-3 mb-3">
-            <label for="peso" class="form-label">Peso (kg)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="peso"
-              name="peso"
-              placeholder="Peso"
-              required
-            />
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <label for="largo" class="form-label">Largo (cm)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="largo"
-              name="largo"
-              placeholder="Largo"
-              required
-            />
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <label for="ancho" class="form-label">Ancho (cm)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="ancho"
-              name="ancho"
-              placeholder="Ancho"
-              required
-            />
-          </div>
-          <div class="col-12 col-md-3 mb-3">
-            <label for="alto" class="form-label">Alto (cm)</label>
-            <input
-              type="number"
-              class="form-control"
-              id="alto"
-              name="alto"
-              placeholder="Alto"
-              required
-            />
-          </div>
-        </div>
-
-        <!-- Botón de cotización -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Calcular Envío</button>
-        </div>
-      </form>
+      <form action="{% url 'shipping' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Calcular Envío</button>
+      </div>
+    </form>
     </div>
     </div>
   </div>
 </div>
-
-
 <section id="services" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Nuestros Servicios</h2>
