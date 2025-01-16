@@ -104,17 +104,54 @@ Logística {% endblock %} {% block content %}
         <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
         <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
         <script src="{% static 'js/argentina-map.js' %}"></script>
-
+        
         <div id="container"></div>
+        <h2 class="text-center" id="titulo">
+          <strong>Llegamos a todo el país!</strong>
+        </h2>
       </div>
       <div class="quote-section col-12 col-md-6 p-3">
       <h1 class="text-center mb-4">Cotiza tu envío</h1>
       <form action="{% url 'shipping' %}" method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <div class="mb-3">
+        <label for="{{ form.direccion_partida.id_for_label }}" class="form-label">Desde</label>
+        {{ form.direccion_partida }}
+      </div>
+      
+      <div class="mb-3">
+        <label for="{{ form.direccion_llegada.id_for_label }}" class="form-label">Hasta</label>
+        {{ form.direccion_llegada }}
+      </div>
+
+      <!-- Dimensiones y peso -->
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <label for="{{ form.peso.id_for_label }}" class="form-label">Peso (kg)</label>
+          {{ form.peso }}
+        </div>
+        
+        <div class="col-12 col-md-3 mb-3">
+          <label for="{{ form.largo.id_for_label }}" class="form-label">Largo (cm)</label>
+          {{ form.largo }}
+        </div>
+        
+        <div class="col-12 col-md-3 mb-3">
+          <label for="{{ form.ancho.id_for_label }}" class="form-label">Ancho (cm)</label>
+          {{ form.ancho }}
+        </div>
+        
+        <div class="col-12 col-md-3 mb-3">
+          <label for="{{ form.alto.id_for_label }}" class="form-label">Alto (cm)</label>
+          {{ form.alto }}
+        </div>
+      </div>
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary">Calcular Envío</button>
       </div>
+      <a class="logo-forms">
+          <img src="{% static 'media/logo_2png.png' %}" alt="Logo"/>          
+        </a>
     </form>
     </div>
     </div>
