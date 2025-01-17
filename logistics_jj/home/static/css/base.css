@@ -6,6 +6,17 @@ body {
     padding: 0;
     overflow-x: hidden;
   }
+  .mt-5.text-center {
+    padding: 20px 0;
+  }
+  
+  .mt-5.text-center h2 {
+    margin-bottom: 20px;
+  }
+  
+  .d-flex.gap-3 a {
+    width: 200px;
+  }
     .logo-forms{
       display:flex;
       justify-content: center;

@@ -51,6 +51,7 @@ def calculate_shipping(request):
                     }
 
                     shipping_request = form.save(commit=False)
+                    shipping_request.usuario = request.user
                     shipping_request.distancia_km = distance_km
                     shipping_request.costo_estimado = cost
                     shipping_request.save()

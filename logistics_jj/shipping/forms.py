@@ -40,12 +40,9 @@ class ShippingRequestForm(forms.ModelForm):
         }
 
     def save(self, commit=True):
-        # Sobrescribimos el método save para calcular el costo antes de guardar
         instance = super().save(commit=False)
-        if instance.direccion_partida and instance.direccion_llegada:
-            # Aquí puedes calcular la distancia y el costo
-            # Supongamos una distancia simulada por ahora (ejemplo: 100 km)
-            instance.distancia_km = 100  # Cambia este valor según los cálculos reales
+        if instance.direccion_partida and instance.direccion_llegada:            
+            instance.distancia_km = 100  
             instance.calcular_costo()
         if commit:
             instance.save()
