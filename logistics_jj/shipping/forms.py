@@ -39,11 +39,4 @@ class ShippingRequestForm(forms.ModelForm):
             }),
         }
 
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        if instance.direccion_partida and instance.direccion_llegada:            
-            instance.distancia_km = 100  
-            instance.calcular_costo()
-        if commit:
-            instance.save()
-        return instance
+    

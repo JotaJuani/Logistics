@@ -1,4 +1,5 @@
 
+import environ
 from pathlib import Path
 from decouple import config
 from django.contrib.messages import constants as messages
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     ]
+]
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'debug',
@@ -136,7 +137,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+env = environ.Env()
+environ.Env.read_env()
+environ.Env.read_env('.env')
 
-GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY')
+GOOGLE_MAPS_API_KEY = config('GOOGLE_MAPS_API_KEY', default=None)
 
+WHATSAPP_PHONE_NUMBER = config("WHATSAPP_PHONE_NUMBER")
 LOGIN_URL = '/login/'

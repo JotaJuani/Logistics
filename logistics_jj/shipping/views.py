@@ -15,6 +15,17 @@ def calculate_shipping(request):
     direccion_partida = None
     direccion_llegada = None
     form = ShippingRequestForm(request.POST or None)
+    try:
+        google_api_key = settings.GOOGLE_MAPS_API_KEY
+    except AttributeError:
+        messages.error(request, "Error al cargar la clave de Google Maps. Por favor, contacta al administrador.")
+        google_api_key = None
+
+    try:
+        whatsapp_phone_number = settings.WHATSAPP_PHONE_NUMBER
+    except AttributeError:
+        messages.error(request, "Error al cargar el número de WhatsApp. Por favor, contacta al administrador.")
+        whatsapp_phone_number = None
 
     if request.method == 'POST' and form.is_valid():
         direccion_partida = form.cleaned_data['direccion_partida']
@@ -25,13 +36,12 @@ def calculate_shipping(request):
         alto = float(form.cleaned_data['alto'] or 0)
 
         if direccion_partida and direccion_llegada:
-            api_key = settings.GOOGLE_MAPS_API_KEY
             url = (
                 f"https://maps.googleapis.com/maps/api/directions/json"
                 f"?origin={direccion_partida}"
                 f"&destination={direccion_llegada}"
                 f"&mode=driving"
-                f"&key={api_key}"
+                f"&key={google_api_key}"
             )
 
             response = requests.get(url)
@@ -62,12 +72,15 @@ def calculate_shipping(request):
                 messages.error(request, "No se pudo calcular la distancia. Intenta nuevamente.")
         else:
             messages.error(request, "Por favor, ingresa direcciones válidas.")
-
-    return render(request, 'shipping/shipping.html', {
-        'cost': cost,
-        'distance_km': distance_km,
-        'direccion_partida': direccion_partida,
-        'direccion_llegada': direccion_llegada,
-        'form': form,
-        'coordinates': json.dumps(coordinates) if coordinates else None,
-    })
+        context = {'cost': cost,
+            'distance_km': distance_km,
+            'direccion_partida': direccion_partida,
+            'direccion_llegada': direccion_llegada,
+            'form': form,
+            'google_api_key' : google_api_key,
+            'whatsapp_phone_number' : whatsapp_phone_number,
+            'coordinates': json.dumps(coordinates) if coordinates else None,}
+        return render(request, 'shipping/shipping.html', context)
+    else:
+        form = ShippingRequestForm()
+    return render(request, "shipping/cotizacion.html", {"form": form})
